@@ -6,6 +6,25 @@
   <router-view/>
 </template>
 
+
+<script>
+import {mapActions} from "vuex"
+
+
+//Disparador de la funcion "leerToken" en store/index
+export default {
+  methods: {
+    ...mapActions(["obtenerToken"])
+  },
+  created(){
+    this.obtenerToken()
+  }
+}
+</script>
+
+
+
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
