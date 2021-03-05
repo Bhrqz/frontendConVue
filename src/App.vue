@@ -2,6 +2,8 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <br>
+    <button @click="cerrarSesion">Cerrar Sesión</button>
   </div>
   <router-view/>
 </template>
@@ -12,13 +14,17 @@ import {mapActions} from "vuex"
 
 
 //Disparador de la funcion "leerToken" en store/index
+//Lo mismo con la funcion de Cerrar sesion
+//se mapean los metodos
+//Exportandolos, permites que sean acccedidas
 export default {
   methods: {
-    ...mapActions(["obtenerToken"])
+    ...mapActions(["obtenerToken", "cerrarSesion"])
   },
   created(){
     this.obtenerToken()
-  }
+  },
+  
 }
 </script>
 

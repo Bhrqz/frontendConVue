@@ -9,6 +9,8 @@ export default createStore({
       state.token = payload
     }
   },
+
+  //en actions van todas las funciones llamadas en las vistas
   actions: {
     async login({commit}, usuario){
       console.log(usuario)
@@ -51,8 +53,16 @@ export default createStore({
       } else {
         commit('setToken', null)
       }
-    }
+    },
+
+    //Funcion que se activa al darle al boton Cerrar Sesion
+    //remueve el token del storage
+    cerrarSesion({commit}){
+      localStorage.removeItem("token")
+      commit ("setToken", null)
   },
+  },
+
   modules: {
   }
 })
